@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="FarmCrop" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://addons/farming_kit/core/farm_crop.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/icon_tomato.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/tomato_0.png" id="s0"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/tomato_1.png" id="s1"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/tomato_2.png" id="s2"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/tomato_3.png" id="s3"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/tomato_4.png" id="s4"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"tomato"
+display_name = "Tomato"
+icon = ExtResource("2_icon")
+grow_days = 6
+stage_textures = Array[Texture2D]([ExtResource("s0"), ExtResource("s1"), ExtResource("s2"), ExtResource("s3"), ExtResource("s4")])
+seasons = PackedStringArray("spring", "summer")
+regrow_days = 3
+yield_min = 2
+yield_max = 3
+rare_chance = 0.1
+metadata = {"sell_price": 25}

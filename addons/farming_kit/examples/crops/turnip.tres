@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="FarmCrop" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://addons/farming_kit/core/farm_crop.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/icon_turnip.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/turnip_0.png" id="s0"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/turnip_1.png" id="s1"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/turnip_2.png" id="s2"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/turnip_3.png" id="s3"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"turnip"
+display_name = "Turnip"
+icon = ExtResource("2_icon")
+grow_days = 4
+stage_textures = Array[Texture2D]([ExtResource("s0"), ExtResource("s1"), ExtResource("s2"), ExtResource("s3")])
+seasons = PackedStringArray("spring", "autumn")
+regrow_days = 0
+yield_min = 1
+yield_max = 1
+rare_chance = 0.15
+metadata = {"sell_price": 35}

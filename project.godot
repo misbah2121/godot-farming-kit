@@ -1,0 +1,32 @@
+; Engine configuration file.
+
+config_version=5
+
+[application]
+
+config/name="Farming Kit Demo"
+run/main_scene="res://addons/farming_kit/examples/demo.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://addons/farming_kit/icons/farm_field.svg"
+
+[autoload]
+
+FarmCalendar="*res://addons/farming_kit/core/farm_calendar.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/farming_kit/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

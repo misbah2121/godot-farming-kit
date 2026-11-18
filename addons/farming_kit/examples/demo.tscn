@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://addons/farming_kit/examples/demo.gd" id="1_demo"]
+[ext_resource type="Script" path="res://addons/farming_kit/core/farm_field.gd" id="2_field"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/grass.png" id="3_grass"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/soil_dry.png" id="4_dry"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/soil_wet.png" id="5_wet"]
+[ext_resource type="Texture2D" path="res://addons/farming_kit/examples/sprites/cursor.png" id="6_cursor"]
+[ext_resource type="Resource" path="res://addons/farming_kit/examples/crops/turnip.tres" id="7_turnip"]
+[ext_resource type="Resource" path="res://addons/farming_kit/examples/crops/wheat.tres" id="8_wheat"]
+[ext_resource type="Resource" path="res://addons/farming_kit/examples/crops/tomato.tres" id="9_tomato"]
+
+[sub_resource type="LabelSettings" id="LS_text"]
+font_size = 10
+outline_size = 4
+outline_color = Color(0.08, 0.1, 0.08, 1)
+
+[sub_resource type="StyleBoxFlat" id="SB_fence"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.32, 0.2, 0.9)
+
+[node name="Demo" type="Node2D"]
+script = ExtResource("1_demo")
+
+[node name="Ground" type="TextureRect" parent="."]
+offset_left = -160.0
+offset_top = -112.0
+offset_right = 352.0
+offset_bottom = 224.0
+mouse_filter = 2
+texture = ExtResource("3_grass")
+stretch_mode = 1
+
+[node name="Fence" type="Panel" parent="."]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 195.0
+offset_bottom = 115.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SB_fence")
+
+[node name="FarmField" type="Node2D" parent="."]
+script = ExtResource("2_field")
+area = Rect2i(0, 0, 12, 7)
+crop_library = Array[Resource]([ExtResource("7_turnip"), ExtResource("8_wheat"), ExtResource("9_tomato")])
+dry_soil_texture = ExtResource("4_dry")
+wet_soil_texture = ExtResource("5_wet")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("6_cursor")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(96, 64)
+zoom = Vector2(2.3, 2.3)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 632.0
+offset_bottom = 22.0
+label_settings = SubResource("LS_text")
+
+[node name="Info" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 420.0
+offset_bottom = 38.0
+label_settings = SubResource("LS_text")
+
+[node name="Message" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 300.0
+offset_right = 632.0
+offset_bottom = 316.0
+label_settings = SubResource("LS_text")
+
+[node name="Tools" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 320.0
+offset_right = 632.0
+offset_bottom = 354.0
+label_settings = SubResource("LS_text")
+
+[node name="Bag" type="Label" parent="HUD"]
+offset_left = 540.0
+offset_top = 6.0
+offset_right = 632.0
+offset_bottom = 70.0
+label_settings = SubResource("LS_text")
+horizontal_alignment = 2
